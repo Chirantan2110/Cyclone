@@ -74,6 +74,18 @@ with col2:
         get_position='[lon, lat]',
         get_color='[255, 0, 0, 200]',
         get_radius=40000,
+
+
+        from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Hello World!"
+
+if __name__ == "__main__":
+    app.run()
         pickable=True,
     )
     
