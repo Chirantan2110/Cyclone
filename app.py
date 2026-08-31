@@ -3,7 +3,17 @@ import pandas as pd
 import numpy as np
 import pydeck as pdk
 from PIL import Image
+from flask import Flask
 
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Hello World!"
+
+if __name__ == "__main__":
+    app.run()
+pickable=True,
 st.set_page_config(page_title="CycloVision AI", layout="wide")
 
 st.title("🌀 CycloVision AI - IMD Cyclone Decision Support")
@@ -74,19 +84,6 @@ with col2:
         get_position='[lon, lat]',
         get_color='[255, 0, 0, 200]',
         get_radius=40000,
-
-
-        from flask import Flask
-
-app = Flask(__name__)
-
-@app.route("/")
-def home():
-    return "Hello World!"
-
-if __name__ == "__main__":
-    app.run()
-        pickable=True,
     )
     
     view_state = pdk.ViewState(latitude=current_lat, longitude=current_lon, zoom=5, pitch=0)
